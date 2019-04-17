@@ -104,9 +104,6 @@
   # Enable zsh
   programs.zsh.enable = true;
 
-  # Make zsh the default shell
-  # users.defaultUserShell = pkgs.zsh;
-
   # Enable Oh-my-zsh
   programs.zsh.ohMyZsh = {
     enable = true;
@@ -122,13 +119,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = { 
     mutableUsers = true;
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.zsh; # Make zsh default shell
     users = {
-      kerwood = {
+      kerwood = { # Change your username here
         isNormalUser = true;
-        # shell = pkgs.zsh;
         extraGroups = [ "wheel" "networkmanager" "docker" ];
-        initialPassword = "password";
+        initialPassword = "password"; # Initial password, remember to change after first boot.
       };
     };
   };
@@ -145,15 +141,14 @@
       freefont_ttf
       google-fonts
       liberation_ttf
-      powerline-fonts
       ttf_bitstream_vera
       ubuntu_font_family
     ];
   };
 
   # Environment Variables
-  #environment.variables = {
-  #};
+  # environment.variables = {
+  # };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
