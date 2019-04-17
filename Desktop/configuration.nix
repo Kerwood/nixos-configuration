@@ -120,14 +120,41 @@
   programs.vim.defaultEditor = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kerwood = {
-    isNormalUser = true;
-    # shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" ]; 
+  users = { 
+    mutableUsers = true;
+    users = {
+      kerwood = {
+        isNormalUser = true;
+        # shell = pkgs.zsh;
+        extraGroups = [ "wheel" "networkmanager" "docker" ];
+        initialPassword = "password";
+      };
+    };
   };
 
   # Disable sudo password
   security.sudo.wheelNeedsPassword = false;
+  
+  # Install fonts
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      anonymousPro
+      corefonts
+      dejavu_fonts
+      font-droid
+      freefont_ttf
+      google-fonts
+      inconsolata
+      liberation_ttf
+      powerline-fonts
+      source-code-pro
+      terminus_font
+      ttf_bitstream_vera
+      ubuntu_font_family
+    ];
+  };
 
   # Environment Variables
   #environment.variables = {
