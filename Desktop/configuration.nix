@@ -105,7 +105,7 @@
   programs.zsh.enable = true;
 
   # Make zsh the default shell
-  users.defaultUserShell = pkgs.zsh;
+  # users.defaultUserShell = pkgs.zsh;
 
   # Enable Oh-my-zsh
   programs.zsh.ohMyZsh = {
@@ -122,6 +122,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = { 
     mutableUsers = true;
+    defaultUserShell = pkgs.zsh;
     users = {
       kerwood = {
         isNormalUser = true;
@@ -140,17 +141,11 @@
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      anonymousPro
-      corefonts
       dejavu_fonts
-      font-droid
       freefont_ttf
       google-fonts
-      inconsolata
       liberation_ttf
       powerline-fonts
-      source-code-pro
-      terminus_font
       ttf_bitstream_vera
       ubuntu_font_family
     ];
