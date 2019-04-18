@@ -47,6 +47,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    ark # KDE Plasma 5 specific!!
     bat
     chromium
     curl
@@ -60,6 +61,7 @@
     python37Packages.glances
     remmina
     seafile-client
+    sublime3
     vscode
     vlc
     wget
