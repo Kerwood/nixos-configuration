@@ -47,25 +47,23 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ark # KDE Plasma 5 specific!!
-    bat
-    chromium
+    ark # KDE Plasma 5 specific! Graphical file compression/decompression utility
+    bat # A cat clone with syntax highlighting and Git integration. https://github.com/sharkdp/bat
+    chromium # Chromium browser
     curl
-    cryptsetup
-    discord
+    cryptsetup # Disk encryption software
+    discord # Message software
     docker
     docker-compose
     git
-    ntfs3g
-    nodejs-10_x
-    python37Packages.glances
-    remmina
-    seafile-client
-    sublime3
-    vscode
-    vlc
-    wget
-    tmux
+    ntfs3g # NTFS filesystem support
+    nodejs-10_x # NodeJS v10 Stable
+    python37Packages.glances # CLI System monitoring tool
+    remmina # RDP Client
+    seafile-client # Seafile Client
+    sublime3 # Sublim Text 3
+    vscode # Visual Studio Code
+    vlc # VLC Media Player
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -109,7 +107,7 @@
   # Enable Oh-my-zsh
   programs.zsh.ohMyZsh = {
     enable = true;
-    plugins = [ "sudo" "docker" "kubectl" ];
+    plugins = [ "git" "sudo" "docker" "kubectl" ];
   };
 
   # Enable The Fuck
@@ -118,7 +116,7 @@
   # Enable Vim and make it the default editor
   programs.vim.defaultEditor = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to change initial password after first login.
   users = { 
     mutableUsers = true;
     defaultUserShell = pkgs.zsh; # Make zsh default shell
